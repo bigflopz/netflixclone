@@ -6,8 +6,9 @@ import ButtonIcon from "./ButtonIcon";
 import Search from "../search.svg"
 import Bell from "../bell.svg"
 import Icon from "../girlicon.jpg"
+import Banner from "./Banner";
 
-function Header() {
+function Header({ children }) {
   return (
     <header>
       <div className="header">

@@ -4,7 +4,7 @@ import axios from '../axios';
 
 const base_url ="https://image.tmdb.org/t/p/w500"
 
-function Movie({title, fetchUrl}) {
+function Movie({title, fetchUrl, isLargeMovie}) {
   const [movieList, setMovieList] = useState([]);
 
 
@@ -19,7 +19,7 @@ function Movie({title, fetchUrl}) {
     
   }, [fetchUrl]);
 
-  console.log(movieList)
+  
 
   return (
     <div>
@@ -28,8 +28,8 @@ function Movie({title, fetchUrl}) {
         {movieList.map((movie) => (
           <img
           key={movie.id}
-            className="movie"
-            src={`${base_url}${movie.poster_path}`}
+            className={`movie ${isLargeMovie && "poster_movie"}`}
+            src={`${base_url}${isLargeMovie ? movie.poster_path : movie.backdrop_path}`}
           />
         ))}
       </div>
